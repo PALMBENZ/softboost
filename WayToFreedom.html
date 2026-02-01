@@ -8,10 +8,25 @@ body { font-family: Arial, sans-serif; background: #f2f2f2; text-align: center; 
 /* Visages */
 .faces {
   display: flex;
-  justify-content: center;
-  gap: 24px;
+  justify-content: center;   /* centre horizontalement */
+  align-items: center;       /* centre verticalement si besoin */
+  flex-wrap: wrap;           /* passe à la ligne si trop large */
+  gap: 24px;                 /* espace entre les visages */
   margin: 24px 0;
 }
+@media (max-width: 768px) {
+  .face {
+    width: 80vw;       /* largeur relative à l’écran */
+    max-width: 300px;  /* limite desktop */
+    min-width: 150px;  /* lisible sur mobile */
+  }
+}
+@media (max-width: 768px) {
+  .faces {
+    gap: 16px;
+  }
+}
+
 .face {
   width: 112vw;          /* x2 de 28vw */
   max-width: 720px;     /* x2 de 180px */
@@ -136,6 +151,7 @@ render();
 
 </body>
 </html>
+
 
 
 
