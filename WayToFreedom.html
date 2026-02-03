@@ -237,52 +237,7 @@ render();
   
 </div>
 
-  <script>
-/* ---- Mettez ici l’URL de votre déploiement doGet ---- */
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwYqxZN8jAzVZP4CIvi6v1HSdEGcmGGl0GbJxIDiaz6WZK05DzF2U2rY3xHWEaEEVhaSQ/exec";
-
-/* Fonction pour enregistrer un clic sur un visage */
-function logClick(humeur) {
-    const timestamp = Date.now();
-    const url = `${GOOGLE_SCRIPT_URL}?humeur=${encodeURIComponent(humeur)}&timestamp=${timestamp}`;
-
-    fetch(url)
-        .then(res => res.text())
-        .then(res => console.log("Réponse Apps Script :", res))
-        .catch(err => console.error("Erreur :", err));
-
-    // Stockage local pour historique
-    const data = JSON.parse(localStorage.getItem("clicks") || "[]");
-    data.push({ humeur, timestamp });
-    localStorage.setItem("clicks", JSON.stringify(data));
-
-    render();
-}
-
-/* Formate la date pour affichage */
-function formatDate(ts) {
-    return new Date(ts).toLocaleString("fr-FR");
-}
-
-/* Affiche l’historique (et éventuellement stats si tu ajoutes plus tard) */
-function render() {
-    const data = JSON.parse(localStorage.getItem("clicks") || "[]");
-
-    // Historique trié par date décroissante
-    const sortedHistory = [...data].sort((a,b) => b.timestamp - a.timestamp);
-
-    // Si tu veux l'afficher dans un tableau #history, tu peux décommenter :
-    /*
-    document.getElementById("history").innerHTML = sortedHistory
-        .map(d => `<tr><td>${d.humeur}</td><td>${formatDate(d.timestamp)}</td></tr>`)
-        .join("");
-    */
-}
-
-/* Initialisation */
-render();
-
-<script>
+ <script>
 document.addEventListener('DOMContentLoaded', () => {
   const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
 
@@ -301,14 +256,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-
-
-</script>
-
 </body>
 
 
 </html>
+
 
 
 
