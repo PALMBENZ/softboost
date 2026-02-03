@@ -238,28 +238,28 @@ render();
 </div>
 
  <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
 
-  // Charger les cases cochées au démarrage
-  checkboxes.forEach(cb => {
-    const saved = localStorage.getItem(cb.dataset.id);
-    if (saved !== null) cb.checked = saved === "true";
-  });
+// Charger les cases cochées au démarrage
+checkboxes.forEach(cb => {
+  const saved = localStorage.getItem(cb.dataset.id);
+  if (saved !== null) cb.checked = saved === "true";
+});
 
-  // Sauvegarder à chaque changement
-  checkboxes.forEach(cb => {
-    cb.addEventListener('change', () => {
-      localStorage.setItem(cb.dataset.id, cb.checked);
-    });
+// Sauvegarder à chaque changement
+checkboxes.forEach(cb => {
+  cb.addEventListener('change', () => {
+    localStorage.setItem(cb.dataset.id, cb.checked);
   });
 });
 </script>
+
 
 </body>
 
 
 </html>
+
 
 
 
