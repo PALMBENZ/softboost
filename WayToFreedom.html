@@ -283,31 +283,29 @@ function render() {
 render();
 
 /* ---- CHECKLIST PROSPECTION ---- */
-const CHECKLIST_URL = "https://script.google.com/macros/s/AKfycbycYvibAFooZs3AqPtkUXvRI93ABmhG5Wr8dTCIVJi3ye4VS-CLLcXnG3D6wm2ZjhRWaQ/exec";
+// Persistance locale avec localStorage
+const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
 
-// Sauvegarde de la checklist
-document.querySelectorAll('.checklist input[type="checkbox"]').forEach(cb => {
-  cb.addEventListener("change", () => {
-    fetch(`${CHECKLIST_URL}?action=save&id=${cb.dataset.id}&checked=${cb.checked}`);
+// Charger les cases cochées au démarrage
+checkboxes.forEach(cb => {
+  const saved = localStorage.getItem(cb.dataset.id);
+  if (saved !== null) cb.checked = saved === "true";
+});
+
+// Sauvegarder à chaque changement
+checkboxes.forEach(cb => {
+  cb.addEventListener('change', () => {
+    localStorage.setItem(cb.dataset.id, cb.checked);
   });
 });
 
-// Chargement de la checklist
-fetch(`${CHECKLIST_URL}?action=load`)
-  .then(res => res.json())
-  .then(data => {
-    document.querySelectorAll('.checklist input[type="checkbox"]').forEach(cb => {
-      if (data[cb.dataset.id] !== undefined) {
-        cb.checked = data[cb.dataset.id];
-      }
-    });
-  });
 </script>
 
 </body>
 
 
 </html>
+
 
 
 
