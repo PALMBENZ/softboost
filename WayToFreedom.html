@@ -13,10 +13,11 @@ body { font-family: Arial, sans-serif; background: #f2f2f2; text-align: center; 
 /* AJOUTE ICI le CSS des boutons */
 .links-row { 
   display: flex;
+  flex-direction: row;     /* 🔥 force horizontal */
   justify-content: center;
   gap: 20px;
   margin: 30px 0;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;       /* 🔥 empêche retour à la ligne */
 }
 
 .btn-link {
@@ -358,6 +359,7 @@ checkboxes.forEach(cb => {
 
 
 </html>
+
 
 
 
