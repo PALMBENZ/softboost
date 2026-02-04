@@ -191,6 +191,30 @@ iframe {
   }
 }
 
+  /* css du bouton complètement en bas pour revenir complètement en haut */
+
+  #backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+
+  padding: 14px 18px;
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  background: linear-gradient(135deg, #34a853, #00ffff);
+  color: #000;
+  border: none;
+  border-radius: 50px;
+
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+
+  display: none; /* caché au départ */
+  z-index: 999;
+}
+
+  /* fin du css du bouton complètement en bas pour revenir complètement en haut */
 </style>
 </head>
 <body>
@@ -396,12 +420,37 @@ checkboxes.forEach(cb => {
   </div>
 </div>
 
+<button id="backToTop">⬆ Haut de page</button>
 
+    <script>
+const btn = document.getElementById("backToTop");
+
+// Affiche le bouton après scroll
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+});
+
+// Scroll vers le haut
+btn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+</script>
+
+
+  
 
 </body>
 
 
 </html>
+
 
 
 
