@@ -3,18 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <title>Suivi des humeurs</title>
+<div class="links-row">
   <a href="#Strategie" class="big-link">Stratégies</a>
-  <a href="#Citations de Jah" class="big-link">Citations</a>
+  <a href="#Citations" class="big-link">Citations</a>
   <a href="#Jah" class="big-link">Citations de Jah</a>
+</div>
+
 <style>
 body { font-family: Arial, sans-serif; background: #f2f2f2; text-align: center; padding: 16px; }
-/* lien cliquables de haut de page*/
-  .big-link {
-  display: block;          /* zone cliquable large */
-  font-size: 3em;          /* x3 la taille */
+/* css des liens cliquables de haut de page*/
+.links-row {
+  display: flex;
+  gap: 24px;            /* espace entre les liens */
+  align-items: center;
+  justify-content: center; /* centre horizontalement */
+}
+
+.big-link {
+  font-size: 3em;
   text-decoration: none;
   color: inherit;
+  white-space: nowrap;  /* empêche le retour à la ligne du texte */
 }
+/* fin du css des liens cliquables de haut de page*/
 
   
   /* Visages */
@@ -321,6 +332,7 @@ checkboxes.forEach(cb => {
 
 
 </html>
+
 
 
 
