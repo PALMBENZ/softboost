@@ -3,27 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <title>Suivi des humeurs</title>
-<div class="links-row">
-  <a href="#Strategies" class="big-link">Stratégies</a>
-  <a href="#Citations" class="big-link">Citations</a>
-  <a href="#Jah" class="big-link">Citations de Jah</a>
+
+
 </div>
 
 <style>
 body { font-family: Arial, sans-serif; background: #f2f2f2; text-align: center; padding: 16px; }
 /* css des liens cliquables de haut de page*/
-.links-row {
+/* AJOUTE ICI le CSS des boutons */
+.links-row { 
   display: flex;
-  gap: 24px;            /* espace entre les liens */
-  align-items: center;
-  justify-content: center; /* centre horizontalement */
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
+  flex-wrap: wrap;
 }
 
-.big-link {
-  font-size: 3em;
+.btn-link {
+  display: inline-block;
+  padding: 16px 28px;
+  font-size: 3rem;
+  font-weight: 600;
   text-decoration: none;
-  color: inherit;
-  white-space: nowrap;  /* empêche le retour à la ligne du texte */
+  color: #000;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+  transition: all 0.25s ease;
+}
+
+.btn-green { background: #34a853; }
+.btn-orange { background: #ff9900; }
+.btn-cyan { background: #00ffff; }
+
+.btn-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.25);
+  filter: brightness(1.1);
+}
+
+.btn-link:active {
+  transform: scale(0.96);
 }
 /* fin du css des liens cliquables de haut de page*/
 
@@ -145,6 +164,13 @@ iframe {
 </head>
 <body>
 
+  <div class="links-row">
+<div class="links-row">
+  <a href="#strategie" class="btn-link btn-green">Stratégies</a>
+  <a href="#citations" class="btn-link btn-orange">Citations</a>
+  <a href="#citations-jah" class="btn-link btn-cyan">Citations de Jah</a>
+</div>
+    
 <h1>Que penses-tu de ce prospect?</h1>
 
 <div class="faces">
@@ -332,6 +358,7 @@ checkboxes.forEach(cb => {
 
 
 </html>
+
 
 
 
