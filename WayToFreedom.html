@@ -130,20 +130,27 @@ iframe {
 
     /* rendre les citations complètement en bas 3 fois plus gros */
 
-    .citations-big p {
-  font-size: 3rem;   /* ≈ 3 fois plus gros */
-  line-height: 1.5;  /* lisibilité */
+/* === CITATIONS GÉANTES EN BAS === */
+.citations-big p {
+  font-size: 4rem;        /* 🔥 4 fois plus gros */
+  line-height: 1.6;       /* lisibilité */
+  margin-bottom: 2.5rem; /* respiration */
+  text-align: left;
 }
+
 
 
     /* fin de rendre les citations complètement en bas 3 fois plus gros */
 
     /* version mobile de rendre les citations complètement en bas 3 fois plus gros */
 
-    @media (max-width: 768px) {
+@media (max-width: 768px) {
   .citations-big p {
-    font-size: 1.6rem;
+    font-size: 2rem;
+    line-height: 1.5;
   }
+}
+
 }
  /* fin de version mobile de rendre les citations complètement en bas 3 fois plus gros */
 }
@@ -450,6 +457,7 @@ btn.addEventListener("click", () => {
 
 
 </html>
+
 
 
 
