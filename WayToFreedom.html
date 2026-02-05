@@ -154,7 +154,7 @@ iframe {
 }
 
 .checklist label {
-  display: block;
+  display: flex;
   align-items: flex-start;
   gap: 12px;
   margin-bottom: 12px;
@@ -176,9 +176,13 @@ iframe {
 }
 
 .checklist input[type="checkbox"] {
-  transform: scale(7);
-  margin-top: 3px;
-  cursor: pointer;
+  margin: 0;                  /* enlève le décalage par défaut */
+  transform: scale(1.6);      /* taille de la checkbox (ajuste si besoin) */
+  flex-shrink: 0;             /* empêche la checkbox de bouger */
+}
+
+.checklist label div {
+  text-align: left;           /* texte bien aligné à gauche */
 }
 
 
@@ -465,6 +469,7 @@ btn.addEventListener("click", () => {
 
 
 </html>
+
 
 
 
