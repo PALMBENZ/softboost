@@ -311,58 +311,6 @@ function render() {
 render();
 </script>
 
-<iframe width="915" height="566" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSagr0JCW-aoCznIQda1J7eHwy1Ah2_ezRL9LDzBpbH_-VH-wumVudn46Nmcx3MvgAlqnRp8wZpruuR/pubchart?oid=21546411&amp;format=interactive"></iframe>
-
-  <!-- CHECKLIST PROSPECTION -->
-<div class="checklist">
-  <h2>Checklist avant prospection</h2>
-
-  <label>
-    <input type="checkbox" data-id="flyers_mega">
-    <div>Application ou Site web <strong>MEGA CONVAINCANTS</strong> design et fonctionnel, créés/améliorés à 100 firmes du même secteur avec visage de Daji et le mien</div>
-  </label>
-
-  <label>
-    <input type="checkbox" data-id="flyers_mega">
-    <div>Flyers <strong>MEGA CONVAINCANTS</strong> (design) créés ou améliorés, à présenter à 100 entreprises du même secteur avec visage de Daji et le mien</div>
-  </label>
-
-  <label>
-    <input type="checkbox" data-id="equipement_propre">
-    <div>Équipement propre et lavé (intérieur & extérieur)</div>
-  </label>
-
-  <label>
-    <input type="checkbox" data-id="tenue_prospection">
-    <div>Chaussures de sortie / sport et veste / costume beige propres, prêts pour aller prospecter</div>
-  </label>
-
-  <label>
-    <input type="checkbox" data-id="materiel_notes">
-    <div>Lunettes, cahiers de notes et stylos prêts</div>
-  </label>
-
-  <label>
-    <input type="checkbox" data-id="tshirt_pub_xxl">
-    <div>T-shirt XXL de pub prêt ?</div>
-  </label>
-
-  <label>
-    <input type="checkbox" data-id="presentoir_xxxl">
-    <div>Présentoir mobile XXXL 3m × 3m amovible et extensible prêt avec visage de Daji et le mien ?</div>
-  </label>
-
-  <label>
-    <input type="checkbox" data-id="papier_pub_3x3">
-    <div>Papier publicitaire 3m × 3m prêt ?</div>
-  </label>
-
-  <label>
-    <input type="checkbox" data-id="zone_identifiee">
-    <div>Ai-je identifié un lieu avec une forte concentration d’entreprises au m² ?</div>
-  </label>
-
-</div>
 
  <script>
 const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
@@ -412,9 +360,27 @@ checkboxes.forEach(cb => {
 </div>
 
 <div class="sections">
-  <div id="Strategies">
+  <div id="Strategies" class="citations-big">
     <h2>Stratégies</h2>
-    <p>Stratégie 1…</p>
+    
+    <p>Application ou Site web <strong>MEGA CONVAINCANTS</strong> design et fonctionnel, créés/améliorés à 100 firmes du même secteur avec visage de Daji et le mien</p>
+
+    <p>Flyers <strong>MEGA CONVAINCANTS</strong> (design) créés ou améliorés, à présenter à 100 entreprises du même secteur avec visage de Daji et le mien</p>
+
+    <p>Équipement propre et lavé (intérieur & extérieur)</p>
+
+    <p>Chaussures de sortie / sport et veste / costume beige propres, prêts pour aller prospecter</p>
+
+    <p>Lunettes, cahiers de notes et stylos prêts</p>
+
+    <p>T-shirt XXL de pub prêt ?</p>
+
+    <p>Présentoir mobile XXXL 3m × 3m amovible et extensible prêt avec visage de Daji et le mien ?</p>
+
+    <p>Papier publicitaire 3m × 3m prêt ?</p>
+
+    <p>Ai-je identifié un lieu avec une forte concentration d’entreprises au m² ?</p>
+ 
   </div>
 
   <div id="Citations" class="citations-big">
@@ -433,7 +399,7 @@ checkboxes.forEach(cb => {
        pour finalement me rendre libre. Pour réussir il faut commencer par échouer et en tirer les leçons/conséquences pertinentes.</p>
   </div>
 
-  <div id="Jah">
+  <div id="Jah" class="citations-big">
     <h2>Citations de Jah</h2>
     <p>Citations 1…</p>
   </div>
@@ -469,6 +435,7 @@ btn.addEventListener("click", () => {
 
 
 </html>
+
 
 
 
