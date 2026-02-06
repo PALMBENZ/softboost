@@ -120,7 +120,7 @@ body { font-family: Arial, sans-serif; background: #f2f2f2; text-align: center; 
   position: relative;
   width: 100%;
   max-width: 1830px;  /* largeur réelle du graphique */
-  padding-bottom: 62%; /* 566/915 ≈ 0.618 ratio hauteur/largeur */
+  padding-botton: 62%; /* 566/915 ≈ 0.618 ratio hauteur/largeur */
   height: 400px;
   overflow: hidden;
   margin: 40px auto;
@@ -134,7 +134,11 @@ body { font-family: Arial, sans-serif; background: #f2f2f2; text-align: center; 
   height: 100%;
   border: none;
 }
-
+@media (max-width: 768px) {
+  .chart-container {
+    padding-top: 80%;  /* légèrement plus haut pour bien voir toutes les barres */
+  }
+}
 
 table { margin: 30px auto; border-collapse: collapse; width: 70%; background: white; }
 th, td { border: 1px solid #ccc; padding: 10px; }
@@ -380,6 +384,7 @@ btn.addEventListener("click", () => {
 
 
 </html>
+
 
 
 
