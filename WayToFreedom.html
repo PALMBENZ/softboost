@@ -116,6 +116,25 @@ body { font-family: Arial, sans-serif; background: #f2f2f2; text-align: center; 
   transform: scale(0.95);
 }
 
+  .chart-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 62%; /* 566/915 ≈ 0.618 ratio hauteur/largeur */
+  height: 0;
+  overflow: hidden;
+  margin: 40px auto;
+}
+
+.chart-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+
 table { margin: 30px auto; border-collapse: collapse; width: 70%; background: white; }
 th, td { border: 1px solid #ccc; padding: 10px; }
 th { background: #eee; }
@@ -218,9 +237,10 @@ iframe {
       <path d="M30 70 Q50 50 70 70" stroke="#000" stroke-width="4" fill="none"/>
   </svg>
 </div>
-
+<div class="chart-container">
   <iframe width="915" height="566" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSagr0JCW-aoCznIQda1J7eHwy1Ah2_ezRL9LDzBpbH_-VH-wumVudn46Nmcx3MvgAlqnRp8wZpruuR/pubchart?oid=21546411&amp;format=interactive"></iframe>
-<script>
+</div>
+  <script>
 /* ---- Mettez ici l’URL de votre déploiement doGet ---- */
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwYqxZN8jAzVZP4CIvi6v1HSdEGcmGGl0GbJxIDiaz6WZK05DzF2U2rY3xHWEaEEVhaSQ/exec";
 
@@ -359,6 +379,7 @@ btn.addEventListener("click", () => {
 
 
 </html>
+
 
 
 
