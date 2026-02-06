@@ -117,9 +117,15 @@ body { font-family: Arial, sans-serif; background: #f2f2f2; text-align: center; 
 .chart-container::before {
   content: "";
   display: block;
-  padding-top: 80%; /* Ratio 566/915 */
+  padding-top: 65%; /* Ratio 566/915 */
 }
 
+  @media (max-width: 768px) {
+  /* Pour mobile : on augmente la hauteur pour ne pas que ce soit minuscule */
+  .chart-container::before {
+    padding-top: 100%; 
+  }
+}
 .chart-container iframe {
   position: absolute;
   top: 0;
@@ -153,8 +159,8 @@ button { margin: 20px; padding: 10px 20px; font-size: 16px; cursor: pointer; }
 
 iframe {
     width: 100% !important;
-    height: 420px !important;
-}
+    height: 100% !important; 
+  }
 
   /* css du bouton complètement en bas pour revenir complètement en haut */
 
@@ -373,6 +379,7 @@ btn.addEventListener("click", () => {
 
 
 </html>
+
 
 
 
