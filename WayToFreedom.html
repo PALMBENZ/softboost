@@ -47,6 +47,8 @@ body { font-family: Arial, sans-serif; background: #f2f2f2; text-align: center; 
 .btn-link:active {transform: scale(0.96);}
 
   #Strategies h2 {
+  margin-top: 0;      /* Supprime l'espace au-dessus du titre */
+  padding-top: 10px;  /* Petit espace de respiration minimal */
   font-size: 3rem;       /* double taille si la taille originale était ~1.5rem */
   color: #34a853;        /* même couleur que le bouton vert */
 }
@@ -108,7 +110,7 @@ body { font-family: Arial, sans-serif; background: #f2f2f2; text-align: center; 
   position: relative;
   width: 100%;
   max-width: 915px; /* Ajusté à la largeur réelle de l'iframe */
-  margin: 40px auto;
+  margin: 40px auto 0 auto;
   /* Supprimez height: 400px pour laisser le ratio faire son travail */
     overflow-x: auto; /* PERMET de voir le reste en glissant à droite */
   overflow-y: hidden;
@@ -395,6 +397,7 @@ btn.addEventListener("click", () => {
 
 
 </html>
+
 
 
 
