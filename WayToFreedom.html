@@ -30,7 +30,7 @@ body { font-family: Arial, sans-serif; background: #f2f2f2; text-align: center; 
   box-shadow: none;
   transition: all 0.25s ease;}
 
-/* Bouton Stratégies → rose */
+/* Bouton Stratégies →  */
 .btn-green {background: #ff69b4;}
 
 /* Bouton Citations → rouge */
@@ -54,12 +54,12 @@ body { font-family: Arial, sans-serif; background: #f2f2f2; text-align: center; 
   margin-top: 0;      /* Supprime l'espace au-dessus du titre */
   padding-top: 10px;  /* Petit espace de respiration minimal */
   font-size: 3rem;       /* double taille si la taille originale était ~1.5rem */
-  color: #34a853;        /* même couleur que le bouton vert */
+  color: #ff69b4;        /* même couleur que le bouton vert */
 }
 
 #Citations h2 {
   font-size: 3rem;
-  color: #ff9900;        /* même couleur que le bouton orange */
+  color: #e53935;        /* même couleur que le bouton orange */
 }
 
 #Jah h2 {
@@ -222,7 +222,7 @@ iframe {
 <div class="links-row">
   <a href="#Strategies" class="btn-link btn-green">Stratégies</a>
   <a href="#Citations" class="btn-link btn-orange">Citations</a>
-  <a href="#Jah" class="btn-link btn-cyan">Stratégies</a>
+  <a href="#Jah" class="btn-link btn-cyan">Citations de Jah</a>
   <a href="#Jah" class="btn-link btn-lightgreen">Vidéos motivantes</a>
 </div>
     
@@ -364,6 +364,12 @@ render();
     <h2>Citations de Jah</h2>
     <p>Citations 1…</p>
   </div>
+
+  <div id="Vid" class="citations-big">
+    <h2>Vidéos motivantes</h2>
+    <p>Vid 1…</p>
+  </div>
+  
 </div>
 
 <button id="backToTop">⬆ Haut de page</button>
@@ -402,6 +408,7 @@ btn.addEventListener("click", () => {
 
 
 </html>
+
 
 
 
