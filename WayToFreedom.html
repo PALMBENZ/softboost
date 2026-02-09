@@ -244,6 +244,8 @@ iframe {
   <a href="#Av" class="btn-link btn-purple">Avantages</a>
 </div>
     
+<div id="motivationMessage" style="font-size: 1.5rem; font-weight: bold; color: #e53935; margin: 20px 0; min-height: 1.6em;"></div>
+
 <h1>Que penses-tu de ce prospect?</h1>
 
 <div class="faces">
@@ -292,9 +294,9 @@ function logClick(humeur) {
     const data = JSON.parse(localStorage.getItem("clicks") || "[]");
     data.push({ humeur, timestamp });
     localStorage.setItem("clicks", JSON.stringify(data));
-
-    render();
 }
+/* Affiche les stats et le message de motivation */
+
 
 /* Formate la date pour affichage */
 function formatDate(ts) {
@@ -302,9 +304,36 @@ function formatDate(ts) {
 }
 
 /* Affiche les stats et l’historique */
+/* Affiche les stats et le message de motivation */
 function render() {
     const data = JSON.parse(localStorage.getItem("clicks") || "[]");
+    const totalContactes = data.length; // Nombre total de clics enregistrés
+    const msgElement = document.getElementById("motivationMessage");
+    
+    let message = "";
 
+    // Logique des paliers de motivation
+    if (totalContactes > 200) {
+        message = "GigaMan!!! 200 personnes t'ont entendu aujourd'hui!!!!!!";
+    } else if (totalContactes > 150) {
+        message = "Mégamagnifique!!!! Tu t'es présenté à 150 personnes!!!!";
+    } else if (totalContactes > 100) {
+        message = "Magnifique!!! Tu viens de toucher 100 personnes!!!!";
+    } else if (totalContactes > 50) {
+        message = "Félicitations tu as atteint la barre des 50 clients potentiels";
+    } else if (totalContactes > 25) {
+        message = "Bravo tu as géré 25 clients potentiels!!!";
+    } else if (totalContactes > 10) {
+        message = "Bien joué!! tu viens de contacter 10 personnes";
+    } else if (totalContactes > 5) {
+        message = "Tu commences bien avec déjà 5 personnes contactées!";
+    }
+
+    // Affichage du message dans le HTML
+    msgElement.innerText = message;
+    
+    // On peut aussi changer la couleur selon l'importance
+    if (totalContactes > 100) msgElement.style.color = "#8F00FF"; // Violet pour les gros scores
 }
 
 /* Initialisation */
@@ -462,6 +491,7 @@ btn.addEventListener("click", () => {
 
 
 </html>
+
 
 
 
