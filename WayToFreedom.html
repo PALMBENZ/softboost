@@ -307,12 +307,20 @@ function formatDate(ts) {
 /* Affiche les stats et le message de motivation */
 function render() {
     const data = JSON.parse(localStorage.getItem("clicks") || "[]");
-    const totalContactes = data.length; // Nombre total de clics enregistrés
-    const msgElement = document.getElementById("motivationMessage");
     
+    // --- FILTRE POUR LE SCORE DU JOUR UNIQUEMENT ---
+    const debutAujourdhui = new Date().setHours(0, 0, 0, 0); // Minuit ce matin
+    const clicsDuJour = data.filter(clic => clic.timestamp >= debutAujourdhui);
+    
+    const totalContactes = clicsDuJour.length; // Ton score de la journée
+    // ----------------------------------------------
+
+    const msgElement = document.getElementById("motivationMessage");
+    if (!msgElement) return;
+
     let message = "";
 
-    // Logique des paliers de motivation
+    // IMPORTANT : On vérifie du plus grand au plus petit
     if (totalContactes > 200) {
         message = "GigaMan!!! 200 personnes t'ont entendu aujourd'hui!!!!!!";
     } else if (totalContactes > 150) {
@@ -329,11 +337,10 @@ function render() {
         message = "Tu commences bien avec déjà 5 personnes contactées!";
     }
 
-    // Affichage du message dans le HTML
     msgElement.innerText = message;
     
-    // On peut aussi changer la couleur selon l'importance
-    if (totalContactes > 100) msgElement.style.color = "#8F00FF"; // Violet pour les gros scores
+    // Couleur dynamique
+    msgElement.style.color = (totalContactes > 100) ? "#8F00FF" : "#e53935";
 }
 
 /* Initialisation */
@@ -491,6 +498,7 @@ btn.addEventListener("click", () => {
 
 
 </html>
+
 
 
 
