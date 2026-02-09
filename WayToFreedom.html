@@ -276,77 +276,47 @@ iframe {
 <div class="chart-container" id="monGraphe">
 <iframe width="615" height="381" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSagr0JCW-aoCznIQda1J7eHwy1Ah2_ezRL9LDzBpbH_-VH-wumVudn46Nmcx3MvgAlqnRp8wZpruuR/pubchart?oid=21546411&amp;format=interactive"></iframe>
 </div>
-  <script>
-/* ---- Mettez ici l’URL de votre déploiement doGet ---- */
+<script>
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwYqxZN8jAzVZP4CIvi6v1HSdEGcmGGl0GbJxIDiaz6WZK05DzF2U2rY3xHWEaEEVhaSQ/exec";
 
-/* Fonction pour enregistrer un clic */
 function logClick(humeur) {
     const timestamp = Date.now();
-    const url = `${GOOGLE_SCRIPT_URL}?humeur=${encodeURIComponent(humeur)}&timestamp=${timestamp}`;
+    fetch(`${GOOGLE_SCRIPT_URL}?humeur=${encodeURIComponent(humeur)}&timestamp=${timestamp}`).catch(console.error);
 
-    fetch(url)
-        .then(res => res.text())
-        .then(res => console.log("Réponse Apps Script :", res))
-        .catch(err => console.error("Erreur :", err));
-
-    // Stockage local pour stats et historique
     const data = JSON.parse(localStorage.getItem("clicks") || "[]");
     data.push({ humeur, timestamp });
     localStorage.setItem("clicks", JSON.stringify(data));
-}
-/* Affiche les stats et le message de motivation */
 
-
-/* Formate la date pour affichage */
-function formatDate(ts) {
-    return new Date(ts).toLocaleString("fr-FR");
+    render();
 }
 
-/* Affiche les stats et l’historique */
-/* Affiche les stats et le message de motivation */
 function render() {
     const data = JSON.parse(localStorage.getItem("clicks") || "[]");
-    
-    // --- FILTRE POUR LE SCORE DU JOUR UNIQUEMENT ---
-    const debutAujourdhui = new Date().setHours(0, 0, 0, 0); // Minuit ce matin
-    const clicsDuJour = data.filter(clic => clic.timestamp >= debutAujourdhui);
-    
-    const totalContactes = clicsDuJour.length; // Ton score de la journée
-    // ----------------------------------------------
+    const debutAujourdhui = new Date().setHours(0, 0, 0, 0);
+    const clicsDuJour = data.filter(c => c.timestamp >= debutAujourdhui);
+    const total = clicsDuJour.length;
 
     const msgElement = document.getElementById("motivationMessage");
     if (!msgElement) return;
 
-    let message = "";
+    // On définit le message selon le score
+    let txt = "";
+    if (total > 200) txt = "GigaMan!!! 200 personnes t'ont entendu aujourd'hui!!!!!!";
+    else if (total > 150) txt = "Mégamagnifique!!!! Tu t'es présenté à 150 personnes!!!!";
+    else if (total > 100) txt = "Magnifique!!! Tu viens de toucher 100 personnes!!!!";
+    else if (total > 50) txt = "Félicitations tu as atteint la barre des 50 clients potentiels";
+    else if (total > 25) txt = "Bravo tu as géré 25 clients potentiels!!!";
+    else if (total > 10) txt = "Bien joué!! tu viens de contacter 10 personnes";
+    else if (total > 5) txt = "Tu commences bien avec déjà 5 personnes contactées!";
+    else txt = "En attente de contacts... (" + total + ")"; // Pour voir que ça bouge !
 
-    // IMPORTANT : On vérifie du plus grand au plus petit
-    if (totalContactes > 200) {
-        message = "GigaMan!!! 200 personnes t'ont entendu aujourd'hui!!!!!!";
-    } else if (totalContactes > 150) {
-        message = "Mégamagnifique!!!! Tu t'es présenté à 150 personnes!!!!";
-    } else if (totalContactes > 100) {
-        message = "Magnifique!!! Tu viens de toucher 100 personnes!!!!";
-    } else if (totalContactes > 50) {
-        message = "Félicitations tu as atteint la barre des 50 clients potentiels";
-    } else if (totalContactes > 25) {
-        message = "Bravo tu as géré 25 clients potentiels!!!";
-    } else if (totalContactes > 10) {
-        message = "Bien joué!! tu viens de contacter 10 personnes";
-    } else if (totalContactes > 5) {
-        message = "Tu commences bien avec déjà 5 personnes contactées!";
-    }
-
-    msgElement.innerText = message;
-    
-    // Couleur dynamique
-    msgElement.style.color = (totalContactes > 100) ? "#8F00FF" : "#e53935";
+    msgElement.innerText = txt;
+    msgElement.style.color = (total > 100) ? "#8F00FF" : "#e53935";
 }
 
-/* Initialisation */
+// Lancement initial
 render();
 </script>
-
   
 <div class="sections">
   <div id="Strategies" class="citations-big">
@@ -498,6 +468,7 @@ btn.addEventListener("click", () => {
 
 
 </html>
+
 
 
 
